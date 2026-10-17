@@ -72,6 +72,15 @@ class SQLiteStorage(Storage):
                     new.append(e)
         return new
 
+    def known_ids(self, ids):
+        ids, found = list(ids), set()
+        for i in range(0, len(ids), 500):
+            chunk = ids[i:i + 500]
+            marks = ",".join("?" * len(chunk))
+            found |= {r[0] for r in self.conn.execute(
+                f"SELECT id FROM events WHERE id IN ({marks})", chunk)}
+        return found
+
     def query(self, since=None, until=None, source=None, kind=None, limit=None):
         sql, args = "SELECT data, time_ms, id FROM events WHERE 1=1", []
         if since is not None:

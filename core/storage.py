@@ -32,6 +32,10 @@ class Storage(ABC):
         """Сохранить события; вернуть только новые (дубли по id пропускаются)."""
 
     @abstractmethod
+    def known_ids(self, ids: Iterable[str]) -> set[str]:
+        """Какие из этих id уже есть в базе."""
+
+    @abstractmethod
     def query(self, since: datetime | None = None, until: datetime | None = None,
               source: str | None = None, kind: str | None = None,
               limit: int | None = None) -> list[Event]:

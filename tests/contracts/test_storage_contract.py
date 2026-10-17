@@ -31,6 +31,13 @@ def test_save_returns_only_new(storage):
     assert len(storage.query()) == 3
 
 
+def test_known_ids(storage):
+    a, b = ev(1), ev(2)
+    storage.save([a])
+    assert storage.known_ids([a.id, b.id]) == {a.id}
+    assert storage.known_ids([]) == set()
+
+
 def test_roundtrip_keeps_all_fields(storage):
     e = ev(1, values={"mag": 5.1}, text="Сильное", tags=["x"], geo={"lat": 1.5, "lon": -2.0})
     e.passed("collector:test")
