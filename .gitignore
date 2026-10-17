@@ -1,0 +1,13 @@
+# Данные, копии и летопись — не в git
+data/
+backups/
+chronicle/
+
+# Настройки и ключи
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
