@@ -4,7 +4,7 @@
 
 ## Где мы сейчас
 
-**Сезон 1 «Росток».** Этап 0 готов, следующий — этап 1: ядро и миссия «Планета».
+**Сезон 1 «Росток».** Готовы этапы 0 и 1: ядро работает, миссия «Планета» собирает землетрясения. Следующий — этап 2: рентген-дерево.
 Подробно — в [docs/progress.md](docs/progress.md).
 
 ## Что почитать
@@ -42,6 +42,14 @@ cd ~
 git clone https://github.com/ivankozel262-cloud/Ooo.git sistema
 cd sistema
 claude
+```
+
+Попробовать Систему (нужен [uv](https://docs.astral.sh/uv/): `curl -LsSf https://astral.sh/uv/install.sh | sh`):
+
+```bash
+uv run sistema run planet        # собрать землетрясения за последний час
+uv run sistema events --last 1h  # показать, что собрано
+uv run sistema serve             # работать постоянно, раз в минуту (Ctrl+C — стоп)
 ```
 
 Потом, чтобы забрать свежие изменения с GitHub:

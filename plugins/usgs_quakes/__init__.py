@@ -14,8 +14,8 @@ from core.plugin import Collector, Context
 
 URL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/{feed}.geojson"
 FEED = re.compile(r"(significant|4\.5|2\.5|1\.0|all)_(hour|day|week|month)")
-NUMBERS = {  # поле USGS → имя в values
-    "mag": "mag", "sig": "sig", "felt": "felt", "cdi": "cdi", "mmi": "mmi",
+NUMBERS = {  # поле USGS → имя в values; порядок = порядок показа
+    "mag": "mag", "depth": "depth_km", "sig": "sig", "felt": "felt", "cdi": "cdi", "mmi": "mmi",
     "tsunami": "tsunami", "nst": "nst", "gap": "gap", "rms": "rms",
 }
 
@@ -51,9 +51,9 @@ class UsgsQuakes(Collector):
         except (KeyError, TypeError, ValueError) as exc:
             raise ValueError(f"формат USGS изменился: не разобрать землетрясение "
                              f"{f.get('id') if isinstance(f, dict) else f!r}: {exc!r}") from exc
-        values = {name: p[k] for k, name in NUMBERS.items() if isinstance(p.get(k), (int, float))}
-        if isinstance(depth, (int, float)):
-            values["depth_km"] = depth
+        numbers = {**p, "depth": depth}
+        values = {name: numbers[k] for k, name in NUMBERS.items()
+                  if isinstance(numbers.get(k), (int, float)) and not isinstance(numbers[k], bool)}
         tags = [f"{k}:{p[k]}" for k in ("type", "magType", "net", "status", "alert") if p.get(k)]
         if p.get("tsunami") == 1:
             tags.append("tsunami")
