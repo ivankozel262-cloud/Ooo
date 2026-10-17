@@ -1,0 +1,62 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "generated": 1792231260000,
+    "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson",
+    "title": "USGS All Earthquakes, Past Hour",
+    "status": 200,
+    "api": "1.14.1",
+    "count": 3
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 1.62, "place": "8 km NW of The Geysers, CA", "time": 1792230960000,
+        "updated": 1792231080000, "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/nc75012345",
+        "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/nc75012345.geojson",
+        "felt": null, "cdi": null, "mmi": null, "alert": null, "status": "automatic",
+        "tsunami": 0, "sig": 40, "net": "nc", "code": "75012345", "ids": ",nc75012345,",
+        "sources": ",nc,", "types": ",nearby-cities,origin,phase-data,", "nst": 18,
+        "dmin": 0.01, "rms": 0.03, "gap": 61, "magType": "md", "type": "earthquake",
+        "title": "M 1.6 - 8 km NW of The Geysers, CA"
+      },
+      "geometry": {"type": "Point", "coordinates": [-122.8155, 38.8248, 2.31]},
+      "id": "nc75012345"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": 5.4, "place": "112 km SSE of Lata, Solomon Islands", "time": 1792229880000,
+        "updated": 1792230900000, "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000r1ab",
+        "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/us7000r1ab.geojson",
+        "felt": 3, "cdi": 3.4, "mmi": 4.1, "alert": "green", "status": "reviewed",
+        "tsunami": 1, "sig": 450, "net": "us", "code": "7000r1ab", "ids": ",us7000r1ab,",
+        "sources": ",us,", "types": ",dyfi,losspager,origin,shakemap,", "nst": 95,
+        "dmin": 3.2, "rms": 0.71, "gap": 38, "magType": "mww", "type": "earthquake",
+        "title": "M 5.4 - 112 km SSE of Lata, Solomon Islands"
+      },
+      "geometry": {"type": "Point", "coordinates": [166.2, -11.7, 35]},
+      "id": "us7000r1ab"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mag": null, "place": null, "time": 1792229100000,
+        "updated": 1792229400000, "tz": null,
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/ak0261xyz",
+        "detail": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/ak0261xyz.geojson",
+        "felt": null, "cdi": null, "mmi": null, "alert": null, "status": "automatic",
+        "tsunami": 0, "sig": 0, "net": "ak", "code": "0261xyz", "ids": ",ak0261xyz,",
+        "sources": ",ak,", "types": ",origin,", "nst": null,
+        "dmin": null, "rms": 0.5, "gap": null, "magType": "ml", "type": "quarry blast",
+        "title": "Quarry Blast"
+      },
+      "geometry": {"type": "Point", "coordinates": [-149.9, 61.2, 0]},
+      "id": "ak0261xyz"
+    }
+  ],
+  "bbox": [-149.9, -11.7, 0, 166.2, 61.2, 35]
+}

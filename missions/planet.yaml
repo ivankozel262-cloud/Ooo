@@ -1,0 +1,10 @@
+# Миссия «Планета» — тестовая: данные бесплатные и свежие каждую минуту.
+name: planet
+title: Планета
+description: Землетрясения по всему миру из фидов USGS.
+schedule:
+  every: 1m
+collectors:
+  - plugin: usgs_quakes
+    params:
+      feed: all_hour
